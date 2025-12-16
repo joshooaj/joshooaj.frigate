@@ -1,18 +1,10 @@
 function Set-FrigateUser {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
-        [ValidateScript({
-                if ($null -eq $_.BaseUri) {
-                    throw ([System.ArgumentException]::new('BaseUri property is missing.'))
-                }
-                if ($null -eq $_.WebSession) {
-                    throw ([System.ArgumentException]::new('WebSession property is missing.'))
-                }
-                $true
-            }, ErrorMessage = 'Session invalid. Use New-FrigateSession to start a new session.')]
+        [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)]
+        [ValidateScript({ TestSession -Session $_ -ErrorAction Stop })]
         [object]
-        $Session,
+        $Session = (GetLastSession -ErrorAction Stop),
 
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
         [string]

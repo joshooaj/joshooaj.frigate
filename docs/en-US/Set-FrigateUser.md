@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Set-FrigateUser [-Session] <Object> [-Username] <String> [[-Password] <SecureString>] [[-Role] <String>]
+Set-FrigateUser [[-Session] <Object>] [-Username] <String> [[-Password] <SecureString>] [[-Role] <String>]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
@@ -70,7 +70,7 @@ Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)

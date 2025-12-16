@@ -1,7 +1,7 @@
 function Close-FrigateSession {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory, ValueFromPipeline)]
+        [Parameter(ValueFromPipeline)]
         [ValidateScript({
                 if ($null -eq $_.BaseUri) {
                     throw ([System.ArgumentException]::new('BaseUri property is missing.'))
@@ -12,7 +12,7 @@ function Close-FrigateSession {
                 $true
             }, ErrorMessage = 'Session invalid. Use New-FrigateSession to start a new session.')]
         [object]
-        $Session
+        $Session = $script:LastSession
     )
 
     process {

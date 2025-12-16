@@ -26,9 +26,10 @@ function New-FrigateSession {
         }
         $null = Invoke-RestMethod @splat
 
-        [pscustomobject]@{
+        $script:LastSession = [pscustomobject]@{
             BaseUri    = $Uri
             WebSession = $splat.WebSession
         }
+        $script:LastSession
     }
 }
