@@ -1,7 +1,16 @@
+![GitHub Actions Test Workflow Status](https://img.shields.io/github/actions/workflow/status/joshooaj/joshooaj.frigate/CI.yaml?label=build)
+![GitHub Actions Docs Workflow Status](https://img.shields.io/github/actions/workflow/status/joshooaj/joshooaj.frigate/Docs.yaml?label=docs)
+![GitHub Actions Publish Workflow Status](https://img.shields.io/github/actions/workflow/status/joshooaj/joshooaj.frigate/Publish.yaml?label=publish)
+<a href="https://www.powershellgallery.com/packages/joshooaj.frigate">![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/joshooaj.frigate?label=PSGallery)</a>
+![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/joshooaj.frigate)
+![GitHub License](https://img.shields.io/github/license/joshooaj/joshooaj.frigate)
+
 # PowerShell module for Frigate
 
 This unofficial Frigate PowerShell module provides convenient cmdlets for working
 with the Frigate REST API.
+
+![Example of Get-FrigateReview](./assets/images/example-get-frigatereview.jpg)
 
 ## Getting started (for Frigate users)
 
