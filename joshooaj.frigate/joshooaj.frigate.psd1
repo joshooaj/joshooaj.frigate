@@ -13,8 +13,8 @@
     PrivateData       = @{
         PSData = @{
             # Tags = @()
-            # LicenseUri = ''
-            # ProjectUri = ''
+            LicenseUri = 'https://github.com/joshooaj/joshooaj.frigate/blob/main/LICENSE'
+            ProjectUri = 'https://github.com/joshooaj/joshooaj.frigate'
             # IconUri = ''
             # ReleaseNotes = ''
             # Prerelease = ''
