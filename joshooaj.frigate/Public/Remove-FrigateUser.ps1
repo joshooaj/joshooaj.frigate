@@ -1,24 +1,22 @@
 function Remove-FrigateUser {
     [CmdletBinding()]
     param (
+        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+        [string]
+        $Username,
+
         [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)]
         [ValidateScript({ TestSession -Session $_ -ErrorAction Stop })]
         [object]
-        $Session = (GetLastSession -ErrorAction Stop),
-
-        [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
-        [string]
-        $Username
+        $Session = (GetLastSession -ErrorAction Stop)
     )
 
     process {
-        $builder = [uribuilder]$Session.BaseUri
-        $builder.Path += 'api/users/' + [system.web.HttpUtility]::UrlEncode($Username)
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Delete'
-            WebSession  = $Session.WebSession
+            Session = $Session
+            Path    = 'api/users/' + [system.web.HttpUtility]::UrlEncode($Username)
+            Method  = 'Delete'
         }
-        Invoke-RestMethod @splat
+        Invoke-FrigateApi @splat
     }
 }

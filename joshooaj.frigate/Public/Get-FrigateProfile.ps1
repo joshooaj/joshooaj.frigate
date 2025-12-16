@@ -8,13 +8,11 @@ function Get-FrigateProfile {
     )
 
     process {
-        $builder = [uribuilder]$Session.BaseUri
-        $builder.Path += 'api/profile'
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Get'
-            WebSession  = $Session.WebSession
+            Session = $Session
+            Path    = 'api/profile'
+            Method  = 'Get'
         }
-        Invoke-RestMethod @splat
+        Invoke-FrigateApi @splat
     }
 }

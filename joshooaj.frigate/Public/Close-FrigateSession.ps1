@@ -16,17 +16,11 @@ function Close-FrigateSession {
     )
 
     process {
-        $builder = [uribuilder]$Session.BaseUri
-        $builder.Path += 'api/logout'
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Get'
-            Headers     = @{
-                Accept = 'application/json'
-            }
-            WebSession  = $Session.WebSession
-            ErrorAction = 'Stop'
+            Session = $Session
+            Path    = 'api/logout'
+            Method  = 'Get'
         }
-        $null = Invoke-RestMethod @splat
+        $null = Invoke-FrigateApi @splat
     }
 }

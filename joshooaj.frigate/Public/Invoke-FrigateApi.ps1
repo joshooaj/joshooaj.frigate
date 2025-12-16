@@ -16,12 +16,24 @@ function Invoke-FrigateApi {
 
         [Parameter()]
         [System.Collections.IDictionary]
-        $Body
+        $Body,
+
+        [Parameter()]
+        [System.Collections.IDictionary]
+        $Query
     )
 
     process {
         $builder = [uribuilder]$Session.BaseUri
         $builder.Path += $Path.TrimStart('/')
+        if ($PSCmdlet.MyInvocation.BoundParameters.ContainsKey('Query')) {
+            $queryParams = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
+            foreach ($key in $Query.Keys) {
+                $queryParams.Add($key, $Query[$key])
+            }
+            $builder.Query = $queryParams.ToString()
+        }
+
         $splat = @{
             Uri         = $builder.Uri
             Method      = $Method
@@ -37,6 +49,8 @@ function Invoke-FrigateApi {
             $splat.Body = [pscustomobject]$data | ConvertTo-Json
             $splat.ContentType = 'application/json'
         }
+
+        # TODO: Do error handling if Frigate API has consistent documented error responses
         Invoke-RestMethod @splat
     }
 }

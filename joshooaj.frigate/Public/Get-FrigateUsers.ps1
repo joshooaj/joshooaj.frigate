@@ -8,13 +8,11 @@ function Get-FrigateUsers {
     )
 
     process {
-        $builder = [uribuilder]$Session.BaseUri
-        $builder.Path += 'api/users'
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Get'
-            WebSession  = $Session.WebSession
+            Session = $Session
+            Path    = 'api/users'
+            Method  = 'Get'
         }
-        Invoke-RestMethod @splat
+        Invoke-FrigateApi @splat
     }
 }

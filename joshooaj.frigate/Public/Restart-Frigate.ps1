@@ -8,13 +8,11 @@ function Restart-Frigate {
     )
 
     process {
-        $builder = [uribuilder]$Session.BaseUri
-        $builder.Path += 'api/restart'
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Post'
-            WebSession  = $Session.WebSession
+            Session = $Session
+            Path    = 'api/restart'
+            Method  = 'Post'
         }
-        Invoke-RestMethod @splat
+        Invoke-FrigateApi @splat
     }
 }

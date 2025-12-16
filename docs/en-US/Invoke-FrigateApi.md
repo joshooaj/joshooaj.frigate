@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 Invoke-FrigateApi [[-Session] <Object>] [-Path] <String> [[-Method] <String>] [[-Body] <IDictionary>]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [[-Query] <IDictionary>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -71,6 +71,21 @@ Aliases:
 
 Required: True
 Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Query
+{{ Fill Query Description }}
+
+```yaml
+Type: IDictionary
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

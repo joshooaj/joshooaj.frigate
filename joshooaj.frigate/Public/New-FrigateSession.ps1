@@ -11,25 +11,21 @@ function New-FrigateSession {
     )
 
     process {
-        $builder = [uribuilder]$Uri
-        $builder.Path += 'api/login'
+        $session = [pscustomobject]@{
+            BaseUri    = $Uri
+            WebSession = [Microsoft.PowerShell.Commands.WebRequestSession]::new()
+        }
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Post'
-            ContentType = 'application/json'
-            Body        = [pscustomobject]@{
+            Session = $session
+            Path    = 'api/login'
+            Method  = 'Post'
+            Body    = @{
                 user     = $Credential.UserName
                 password = $Credential.GetNetworkCredential().Password
-            } | ConvertTo-Json
-            WebSession  = [Microsoft.PowerShell.Commands.WebRequestSession]::new()
+            }
             ErrorAction = 'Stop'
         }
-        $null = Invoke-RestMethod @splat
-
-        $script:LastSession = [pscustomobject]@{
-            BaseUri    = $Uri
-            WebSession = $splat.WebSession
-        }
-        $script:LastSession
+        $null = Invoke-FrigateApi @splat
+        ($script:LastSession = $session)
     }
 }

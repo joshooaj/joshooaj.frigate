@@ -8,13 +8,11 @@ function Get-FrigateConfig {
     )
 
     process {
-        $builder = [uribuilder]$Session.BaseUri
-        $builder.Path += 'api/config'
         $splat = @{
-            Uri         = $builder.Uri
-            Method      = 'Get'
-            WebSession  = $Session.WebSession
+            Session = $Session
+            Path    = 'api/config'
+            Method  = 'Get'
         }
-        Invoke-RestMethod @splat
+        Invoke-FrigateApi @splat
     }
 }
