@@ -2,12 +2,12 @@ function Get-FrigateEvent {
     [CmdletBinding()]
     param (
         [Parameter()]
-        [ValidateNotNullOrWhiteSpace()]
+        [ValidateNotNullOrEmpty()]
         [string]
         $Camera,
 
         [Parameter()]
-        [ValidateNotNullOrWhiteSpace()]
+        [ValidateNotNullOrEmpty()]
         [string]
         $Label,
 
