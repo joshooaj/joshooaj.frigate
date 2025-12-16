@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-FrigateUser
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Update an existing Frigate user's password and/or role.
 
 ## SYNTAX
 
@@ -18,21 +18,24 @@ Set-FrigateUser [[-Session] <Object>] [-Username] <String> [[-Password] <SecureS
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Modify a user's account on a Frigate server. You can update the user's password and/or change their role (for example `admin` or `viewer`). The cmdlet requires the target `-Username` and accepts a secure password and role when you need to change them.
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
-PS C:\> {{ Add example code here }}
+$pass = Read-Host -AsSecureString -Prompt 'New password for alice'
+Set-FrigateUser -Username alice -Password $pass
 ```
 
-{{ Add example description here }}
+Updates the password for the user `alice`. The secure string prevents the password from appearing in plain text.
 
 ## PARAMETERS
 
 ### -Password
-{{ Fill Password Description }}
+
+The new password for the user as a `SecureString`. Use `Read-Host -AsSecureString` to prompt for a password without echoing it.
 
 ```yaml
 Type: SecureString
@@ -47,7 +50,8 @@ Accept wildcard characters: False
 ```
 
 ### -Role
-{{ Fill Role Description }}
+
+The role to assign to the user. Valid values are `admin` or `viewer`. When provided, the user's role will be updated.
 
 ```yaml
 Type: String
@@ -63,7 +67,8 @@ Accept wildcard characters: False
 ```
 
 ### -Session
-{{ Fill Session Description }}
+
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object
@@ -78,7 +83,8 @@ Accept wildcard characters: False
 ```
 
 ### -Username
-{{ Fill Username Description }}
+
+The username of the account to modify. This value is required.
 
 ```yaml
 Type: String
@@ -105,7 +111,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
+### None
+
 ## NOTES
+
+This cmdlet performs account management operations on the Frigate server and typically requires administrative privileges. Passwords should be provided as `SecureString` values to avoid exposing secrets in logs or console history.
 
 ## RELATED LINKS

@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-FrigateUsers
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+List user accounts configured on the Frigate server.
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ Get-FrigateUsers [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Returns the list of user accounts and their roles from the Frigate server. Use this command to audit accounts or verify user roles.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-FrigateUsers
 ```
 
-{{ Add example description here }}
+Displays all configured users and their roles.
 
 ## PARAMETERS
 
 ### -Session
-{{ Fill Session Description }}
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object

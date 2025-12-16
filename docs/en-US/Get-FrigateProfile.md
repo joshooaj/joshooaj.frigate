@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-FrigateProfile
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieves profile information from the Frigate server for the authenticated session.
 
 ## SYNTAX
 
@@ -17,21 +17,32 @@ Get-FrigateProfile [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Returns profile details for the current authenticated user (as reported by the Frigate API). Typical information includes username and role.
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-FrigateProfile | Format-Table username, role
 ```
 
-{{ Add example description here }}
+Display the current profile information in a compact table.
+
+### Example 2
+
+```powershell
+$session = New-FrigateSession -BaseUri 'https://frigate.example.local' -ApiKey $env:FRIGATE_API_KEY
+$session | Get-FrigateProfile
+```
+
+This returns profile data from the specified Frigate server.
 
 ## PARAMETERS
 
 ### -Session
-{{ Fill Session Description }}
+
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object
@@ -50,11 +61,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
+
+This command queries the Frigate API `api/profile` endpoint and requires a valid authenticated session. If you receive an authentication error, run `New-FrigateSession` and try again.
+
+
+Profiles may reveal user roles and accounts configured on the Frigate server - treat this data as sensitive.
 
 ## RELATED LINKS

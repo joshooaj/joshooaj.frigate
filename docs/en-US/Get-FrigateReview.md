@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-FrigateReview
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieve reviewable events from the Frigate server (for manual review workflows).
 
 ## SYNTAX
 
@@ -18,21 +18,23 @@ Get-FrigateReview [[-Camera] <String[]>] [[-Label] <String[]>] [[-After] <DateTi
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Queries the Frigate review endpoint and returns events that require or have been marked for review. Use filters to limit results by camera(s), label(s), and time range.
+
+Each returned object includes the usual event fields and convenience `StartTime`/`EndTime` properties converted to your local time.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-FrigateReview -After (Get-Date).AddDays(-1) | Select-Object StartTime, EndTime, camera
 ```
 
-{{ Add example description here }}
+Lists review events from the last 24 hours with key columns for quick inspection.
 
 ## PARAMETERS
 
 ### -After
-{{ Fill After Description }}
+Return events that started after the specified `DateTime` value.
 
 ```yaml
 Type: DateTime
@@ -47,7 +49,7 @@ Accept wildcard characters: False
 ```
 
 ### -Before
-{{ Fill Before Description }}
+Return events that started before the specified `DateTime` value.
 
 ```yaml
 Type: DateTime
@@ -62,7 +64,7 @@ Accept wildcard characters: False
 ```
 
 ### -Camera
-{{ Fill Camera Description }}
+Array of camera names to include (for example `frontdoor`). Pass multiple values to filter several cameras.
 
 ```yaml
 Type: String[]
@@ -77,7 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Label
-{{ Fill Label Description }}
+Array of labels (for example `person`, `car`) to filter returned review items. Case-insensitive.
 
 ```yaml
 Type: String[]
@@ -92,7 +94,7 @@ Accept wildcard characters: False
 ```
 
 ### -Session
-{{ Fill Session Description }}
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object

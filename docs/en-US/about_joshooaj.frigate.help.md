@@ -2,58 +2,48 @@
 
 ## about_joshooaj.frigate
 
-```
-ABOUT TOPIC NOTE:
-The first header of the about topic should be the topic name.
-The second header contains the lookup name used by the help system.
-
-IE:
-# Some Help Topic Name
-## SomeHelpTopicFileName
-
-This will be transformed into the text file
-as `about_SomeHelpTopicFileName`.
-Do not include file extensions.
-The second header should have no spaces.
-```
-
 # SHORT DESCRIPTION
-{{ Short Description Placeholder }}
-
-```
-ABOUT TOPIC NOTE:
-About topics can be no longer than 80 characters wide when rendered to text.
-Any topics greater than 80 characters will be automatically wrapped.
-The generated about topic will be encoded UTF-8.
-```
+PowerShell module for administering and querying Frigate NVRs.
 
 # LONG DESCRIPTION
-{{ Long Description Placeholder }}
+This module provides a set of PowerShell cmdlets to authenticate to, query, and
+manage Frigate servers via their HTTP API. It is intended for technical types
+like system administrators who need to inspect configuration, list events,
+manage users, or perform administrative actions such as restarting a Frigate
+instance.
+
+Commands are simple wrappers around Frigate API endpoints and return PowerShell
+objects suitable for inspection, filtering, or export. Use `New-FrigateSession`
+to authenticate, then run subsequent commands against that session.
 
 ## Optional Subtopics
-{{ Optional Subtopic Placeholder }}
+Common tasks:
+
+- Inspecting server configuration (`Get-FrigateConfig`).
+- Listing recent events (`Get-FrigateEvent`, `Get-FrigateReview`).
+- Managing users (`Get-FrigateUsers`, `New-FrigateUser`, `Set-FrigateUser`, `Remove-FrigateUser`).
 
 # EXAMPLES
-{{ Code or descriptive examples of how to leverage the functions described. }}
+Create an authenticated session and list users:
+
+```powershell
+$cred = Get-Credential -Message 'Frigate admin credentials'
+New-FrigateSession -Uri 'https://frigate.example.local' -Credential $cred
+Get-FrigateUsers
+```
+
+This creates a session and displays configured users.
 
 # NOTE
-{{ Note Placeholder - Additional information that a user needs to know.}}
+Commands that modify server state (creating users, restarting the server, changing passwords) require appropriate administrative privileges. Actions may interrupt recording or streaming.
 
 # TROUBLESHOOTING NOTE
-{{ Troubleshooting Placeholder - Warns users of bugs}}
-
-{{ Explains behavior that is likely to change with fixes }}
-
-# SEE ALSO
-{{ See also placeholder }}
-
-{{ You can also list related articles, blogs, and video URLs. }}
+If an operation fails with an authentication error, verify credentials and that the Frigate server is reachable from the machine running the cmdlets. For network problems, confirm the server URI and any firewall or proxy settings.
 
 # KEYWORDS
-{{List alternate names or titles for this topic that readers might use.}}
-
-- {{ Keyword Placeholder }}
-- {{ Keyword Placeholder }}
-- {{ Keyword Placeholder }}
-- {{ Keyword Placeholder }}
-
+- frigate
+- video analytics
+- surveillance
+- NVR
+- VMS
+- CCTV

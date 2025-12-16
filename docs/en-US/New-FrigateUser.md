@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-FrigateUser
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Create a new user account on a Frigate server.
 
 ## SYNTAX
 
@@ -17,21 +17,22 @@ New-FrigateUser [-Credential] <PSCredential> [[-Role] <String>] [[-Session] <Obj
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Creates a new user on the Frigate server using the supplied credentials and role. Provide a `PSCredential` object (for username and password) and optionally specify `-Role` (default is `viewer`).
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$cred = Get-Credential -Message 'Enter new user credentials'
+New-FrigateUser -Credential $cred -Role viewer
 ```
 
-{{ Add example description here }}
+Creates a new Frigate user with the supplied credentials and assigns the `viewer` role.
 
 ## PARAMETERS
 
 ### -Credential
-{{ Fill Credential Description }}
+A `PSCredential` object containing the username and password for the new account. Use `Get-Credential` to create this object interactively.
 
 ```yaml
 Type: PSCredential
@@ -46,7 +47,7 @@ Accept wildcard characters: False
 ```
 
 ### -Role
-{{ Fill Role Description }}
+The role to assign to the new user. Valid values are `admin` or `viewer`. Defaults to `viewer`.
 
 ```yaml
 Type: String
@@ -62,7 +63,7 @@ Accept wildcard characters: False
 ```
 
 ### -Session
-{{ Fill Session Description }}
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object

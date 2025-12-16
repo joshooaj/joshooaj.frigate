@@ -8,7 +8,7 @@ schema: 2.0.0
 # Restart-Frigate
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Restart a Frigate server instance.
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ Restart-Frigate [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Requests a restart of the Frigate server. This triggers the server's restart endpoint and will briefly interrupt recording, streaming, and API availability.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Restart-Frigate
 ```
 
-{{ Add example description here }}
+Requests the remote Frigate server to restart. Expect a short service outage while the server restarts.
 
 ## PARAMETERS
 
 ### -Session
-{{ Fill Session Description }}
+A session object created by `New-FrigateSession` representing an authenticated connection to the Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object

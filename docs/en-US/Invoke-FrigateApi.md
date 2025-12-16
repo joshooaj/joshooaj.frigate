@@ -8,7 +8,7 @@ schema: 2.0.0
 # Invoke-FrigateApi
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Send a low-level API request to a Frigate server.
 
 ## SYNTAX
 
@@ -18,21 +18,40 @@ Invoke-FrigateApi [[-Session] <Object>] [-Path] <String> [[-Method] <String>] [[
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Perform an arbitrary HTTP request against the Frigate API. This cmdlet is useful for administrators who need to call endpoints not supported by the module yet.
+
+Provide `-Path` for the API endpoint and optionally `-Method` (default `Get`), a `-Query` dictionary for query parameters, or a `-Body` dictionary for JSON payloads.
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
-PS C:\> {{ Add example code here }}
+Invoke-FrigateApi -Path 'api/stats'
 ```
 
-{{ Add example description here }}
+Requests server performance stats from the Frigate instance.
+
+### Example 2
+
+```powershell
+Invoke-FrigateApi -Path 'api/events' -Query @{ camera = 'frontdoor'; after = ([datetimeoffset]::UtcNow.AddHours(-1).ToUnixTimeMilliseconds() / 1000) }
+```
+
+Queries recent events from the `frontdoor` camera in the last hour.
+
+### Example 3
+
+```powershell
+Invoke-FrigateApi -Path 'api/users' -Method Post -Body @{ username = 'newuser'; password = 'secret' }
+```
+
+Creates a new user via the API. Avoid passing plaintext secrets in shared scripts; prefer using secure credential helpers.
 
 ## PARAMETERS
 
 ### -Body
-{{ Fill Body Description }}
+A dictionary (key/value) that will be JSON-encoded and sent as the request body. Use this for `POST` or `PUT` requests.
 
 ```yaml
 Type: IDictionary
@@ -47,7 +66,7 @@ Accept wildcard characters: False
 ```
 
 ### -Method
-{{ Fill Method Description }}
+The HTTP method to use for the request (for example `Get`, `Post`, `Put`, `Delete`). Defaults to `Get`.
 
 ```yaml
 Type: String
@@ -62,7 +81,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
-{{ Fill Path Description }}
+The API path to call (for example `api/events`, `api/users`). Do not include a leading slash; the module will normalize the path.
 
 ```yaml
 Type: String
@@ -77,7 +96,7 @@ Accept wildcard characters: False
 ```
 
 ### -Query
-{{ Fill Query Description }}
+A dictionary of query parameters to append to the request URL. Keys and values will be URL-encoded.
 
 ```yaml
 Type: IDictionary
@@ -92,7 +111,7 @@ Accept wildcard characters: False
 ```
 
 ### -Session
-{{ Fill Session Description }}
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object

@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-FrigateSession
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Create an authenticated session to a Frigate server.
 
 ## SYNTAX
 
@@ -17,21 +17,22 @@ New-FrigateSession [-Uri] <Uri> [-Credential] <PSCredential> [<CommonParameters>
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Authenticates to a Frigate server using the supplied URI and credentials, and returns a session object that you can use with other cmdlets in this module. The most recent session object is cached and used by default when the session parameter is not supplied.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$cred = Get-Credential -Message 'Frigate credentials'
+New-FrigateSession -Uri 'https://frigate.example.local' -Credential $cred
 ```
 
-{{ Add example description here }}
+Creates an authenticated session to the specified Frigate server and stores it for subsequent commands.
 
 ## PARAMETERS
 
 ### -Credential
-{{ Fill Credential Description }}
+A `PSCredential` containing the username and password used to authenticate to the Frigate server. Use `Get-Credential` to provide this interactively.
 
 ```yaml
 Type: PSCredential
@@ -46,7 +47,7 @@ Accept wildcard characters: False
 ```
 
 ### -Uri
-{{ Fill Uri Description }}
+The base URI of the Frigate server (for example `https://frigate.example.local`). This must be a valid URI.
 
 ```yaml
 Type: Uri

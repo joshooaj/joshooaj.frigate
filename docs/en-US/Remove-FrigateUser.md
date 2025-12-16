@@ -8,7 +8,7 @@ schema: 2.0.0
 # Remove-FrigateUser
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Remove a user account from the Frigate server.
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ Remove-FrigateUser [-Username] <String> [[-Session] <Object>] [<CommonParameters
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Deletes the specified user account from the Frigate server. This operation is permanent - removed users will no longer be able to authenticate.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+Remove-FrigateUser -Username bob
 ```
 
-{{ Add example description here }}
+Removes the user `bob` from the Frigate server.
 
 ## PARAMETERS
 
 ### -Session
-{{ Fill Session Description }}
+A session object created by `New-FrigateSession` that represents an authenticated connection to a Frigate server. If omitted, the cmdlet will attempt to use the last session created in this PowerShell session.
 
 ```yaml
 Type: Object
@@ -46,7 +46,7 @@ Accept wildcard characters: False
 ```
 
 ### -Username
-{{ Fill Username Description }}
+The username of the account to remove. This value is required.
 
 ```yaml
 Type: String
