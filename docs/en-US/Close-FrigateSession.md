@@ -36,7 +36,7 @@ Close the most recently created session.
 ### Example 2
 
 ```powershell
-$session = New-FrigateSession -BaseUri 'https://frigate.example.local' -ApiKey $env:FRIGATE_API_KEY
+$session = New-FrigateSession -Uri 'https://frigate.example.local' -Credential (Get-Credential)
 $session | Close-FrigateSession
 ```
 
