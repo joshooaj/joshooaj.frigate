@@ -13,8 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Remove-FrigateUser [-Username] <String> [[-Session] <Object>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Remove-FrigateUser [-Username] <String> [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

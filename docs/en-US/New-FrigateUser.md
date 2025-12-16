@@ -13,8 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-FrigateUser [-Credential] <PSCredential> [[-Role] <String>] [[-Session] <Object>]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+New-FrigateUser [-Credential] <PSCredential> [[-Role] <String>] [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

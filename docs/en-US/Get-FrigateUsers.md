@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Get-FrigateUsers [[-Session] <Object>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-FrigateUsers [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

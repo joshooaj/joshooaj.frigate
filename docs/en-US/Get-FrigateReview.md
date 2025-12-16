@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 Get-FrigateReview [[-Camera] <String[]>] [[-Label] <String[]>] [[-After] <DateTime>] [[-Before] <DateTime>]
- [[-Session] <Object>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

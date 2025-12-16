@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Get-FrigateConfig [[-Session] <Object>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-FrigateConfig [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -13,4 +13,4 @@ properties {
 
 task Default -depends Test
 
-task Test -FromModule PowerShellBuild -minimumVersion '0.6.1'
+task Test -FromModule joshooaj.PowerShellBuild -minimumVersion '0.6.3'

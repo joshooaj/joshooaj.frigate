@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Restart-Frigate [[-Session] <Object>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Restart-Frigate [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 Invoke-FrigateApi [[-Session] <Object>] [-Path] <String> [[-Method] <String>] [[-Body] <IDictionary>]
- [[-Query] <IDictionary>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [[-Query] <IDictionary>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 Set-FrigateUser [[-Session] <Object>] [-Username] <String> [[-Password] <SecureString>] [[-Role] <String>]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION

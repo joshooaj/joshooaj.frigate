@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Close-FrigateSession [[-Session] <Object>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Close-FrigateSession [[-Session] <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

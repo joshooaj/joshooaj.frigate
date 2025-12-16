@@ -13,8 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-New-FrigateSession [-Uri] <Uri> [-Credential] <PSCredential> [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+New-FrigateSession [-Uri] <Uri> [-Credential] <PSCredential> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
