@@ -7,8 +7,14 @@
 
 # PowerShell module for Frigate
 
-This unofficial Frigate PowerShell module provides convenient cmdlets for working
-with the Frigate REST API.
+This unofficial [Frigate](https://frigate.video/) PowerShell module provides
+convenient cmdlets for working with the Frigate REST API.
+
+Frigate is an open-source MIT-licensed network video recorder application you can
+run anywhere. It's a popular surveillance tool with homelabbers, integrates nicely
+with Home Assistant, and uses locally running AI models for object detection.
+
+Learn more at https://frigate.video/
 
 ![Example of Get-FrigateReview](./assets/images/example-get-frigatereview.jpg)
 
